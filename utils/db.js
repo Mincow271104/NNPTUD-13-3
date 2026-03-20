@@ -13,7 +13,8 @@ let collections = {
     users: [],
     roles: [],
     products: [],
-    categories: []
+    categories: [],
+    inventories: []
 };
 
 /**
@@ -176,7 +177,8 @@ function findByIdAndUpdate(collectionName, id, updateData, options = {}) {
 function getRefCollection(collectionName, fieldPath) {
     let refs = {
         users: { role: 'roles' },
-        products: { category: 'categories' }
+        products: { category: 'categories' },
+        inventories: { product: 'products' }
     };
     return refs[collectionName] ? refs[collectionName][fieldPath] : null;
 }
